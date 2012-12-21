@@ -33,8 +33,7 @@ class SessionsController < ApplicationController
 
     if session[:uid]
       current_user
-      redirect_to session[:return_to] || user_url(@current_user)
-      session[:return_to] = nil
+      redirect_to user_url(@current_user)
     else
       redirect_to new_session_url
     end

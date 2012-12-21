@@ -18,8 +18,6 @@ class ApplicationController < ActionController::Base
 
   def login_required
     if current_user.nil?
-      flash[:alert] = t('template.login_required')
-      session[:return_to] = request.url
       redirect_to new_session_url
     end
   end
