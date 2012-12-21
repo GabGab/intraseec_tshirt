@@ -1,0 +1,24 @@
+fr:
+  activerecord:
+    attributes:
+      user:
+        email: "adresse email"
+        last_name: "nom"
+        first_name: "prénom"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "doit être rempli"
+              invalid: "n'est pas valide"
+              taken: "est déjà utilisé"
+            last_name:
+              blank: "doit être rempli"
+            first_name:
+              blank: "doit être rempli"
+  popup:
+    user_denied:
+      title: "Acceptez l'application pour vous inscrire"
+      message: "Nous avons besoin d’accéder à vos informations de base pour vous contacter si vous êtes tiré au sort !"
+    close: "Fermer"
