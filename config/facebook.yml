@@ -3,7 +3,6 @@ development:
   app_id: 286004088169314
   page_id: 293080470785802
   page_url: http://www.facebook.com/youyouxpage
-  app_access_token: "410047012350929|s2h2VziTIWs3nSifJp7v0ss7GWY"
   adapter: koala
 
 test:
