@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>IntraseecTshirt</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>IntraseecTshirt</title>
+    <script type="text/javascript">
+      AppSettings = {
+        appId: "<%= Facebook::APP_ID %>",
+        channelUrl: "<%= URI.join(root_url, 'channel.html').to_s %>"
+      };
+    </script>
 
-<%= yield %>
-
-</body>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class='<%="#{controller.controller_name}_#{controller.action_name}"%>'>
+    <div class="fb-root"></div>
+    <div class="app-container">
+      <%= yield %>
+      <div class="footer">
+        Ce concours est l’initiative d’Intraseec. Les données ne sont ni divulguées, ni utilisées à des fins commerciales.
+        Facebook n’est aucunement responsable du contenu diffusé sur ce concours, l’ensemble du contenu est sous la responsabilité d’Intraseec et des MBA Spécialisés INSEEC Paris. <span class="right">2012.</span>
+        <p class="links">
+          <%= link_to "Politique de Confidentialité", "http://dl.dropbox.com/u/26240892/INTRASEEC/CONTEST/RDT/Politique_Confidentialite.pdf", :target => "_blank" %> - 
+          <%= link_to "Règlement", "http://dl.dropbox.com/u/26240892/INTRASEEC/CONTEST/RDT/R%C3%A8glement_Concours.pdf", :target => "_blank" %>
+        </p>
+      </div>
+    </div>
+    <%= render :partial => "shared/user_denied_popup" %>
+  </body>
 </html>
