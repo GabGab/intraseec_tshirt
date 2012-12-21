@@ -33,7 +33,7 @@ class SessionsController < ApplicationController
 
     if session[:uid]
       current_user
-      redirect_to user_url(@current_user)
+      redirect_to @current_user.email.nil? ? edit_user_url(@current_user) : user_url(@current_user)
     else
       redirect_to new_session_url
     end

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  def new
-    @user = User.new
+  def edit
+    @user = User.find(params[:id])
   end
 
   def show
@@ -9,13 +9,13 @@ class UsersController < ApplicationController
     redirect_to new_session_url if @user.email.nil? && @user.first_name.nil? && @user.last_name.nil?
   end
 
-  def create
-    @user = User.new(params[:user])
+  def update
+    @user = User.find(params[:id])
 
-    if @user.save
+    if @user.update_attributes(params[:user].merge!({:is_from_user_form => true}))
       redirect_to user_url(@user)
     else
-      render "new"
+      render "edit"
     end
   end
 end

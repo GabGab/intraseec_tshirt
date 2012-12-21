@@ -1,0 +1,24 @@
+<div id="form_container" class="explanations">
+  <p class="form_widget_title">Validez ce formulaire pour participer</p>
+  <p class="form_widget_become_fan">Devenez Fan :</p>
+  <%= facebook_like_button(t('citroen_page_url'), :width => 50) %>
+  <%= error_messages_for(@user) %>
+  <%= form_for @user do |f| %>
+      <p class="last_name_field">
+        <%= f.label :last_name, :class => "mandatory" %> :
+        <%= f.text_field :last_name %>
+      </p>
+      <p class="first_name_field">
+        <%= f.label :first_name, :class => "mandatory" %> :
+        <%= f.text_field :first_name %>
+      </p>
+      <p class="email_field">
+        <%= f.label :email, :class => "mandatory" %> :
+        <%= f.text_field :email %>
+      </p>
+      <%= f.hidden_field(:uid, :value => @user.uid) %>
+    <div class="actions">
+      <%= f.submit "Je participe", :class => "requires_fan btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
