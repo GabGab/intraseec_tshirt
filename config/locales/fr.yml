@@ -21,4 +21,6 @@ fr:
     user_denied:
       title: "Acceptez l'application pour vous inscrire"
       message: "Nous avons besoin d’accéder à vos informations de base pour vous contacter si vous êtes tiré au sort !"
+    requires_fan:
+      title: "Pour participer Devenez fans"
     close: "Fermer"

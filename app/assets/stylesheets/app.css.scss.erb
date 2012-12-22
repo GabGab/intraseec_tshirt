@@ -68,6 +68,21 @@ html, body {
   }
 }
 
+/* ======== */
+/* = Form = */
+/* ======== */
+.error_message {
+  color: red;
+}
+
+.field_with_errors {
+  display: inline-block;
+
+  input {
+    border: 1px solid red;
+  }
+}
+
 /* ========== */
 /* = Popups = */
 /* ========== */
@@ -112,5 +127,21 @@ html, body {
   .popup-footer {
     text-align: right;
     padding-right: 10px;
+  }
+}
+
+#requires-fan-popup {
+  .popup-header {
+    h2 {
+      width: 70%;
+    }
+  }
+
+  .popup-body {
+    text-align: center;
+
+    .fb-like {
+      margin-top: 25px;
+    }
   }
 }

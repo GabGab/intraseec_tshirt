@@ -1,0 +1,14 @@
+<div id="requires-fan-popup" class="popup" style="display: none;">
+  <div class="popup-header">
+    <h2><%= t('popup.requires_fan.title') %></h2>
+  </div>
+  <div class="popup-body">
+    <%= facebook_like_button("#{Facebook::PAGE_URL}") %>
+  </div>
+  <div class="popup-footer">
+    <button class="popup-close-button btn btn-primary" type="button" data-toggle-popup="requiresFan">
+      <%= t('popup.close') %>
+    </button>
+  </div>
+</div>
+<div id="requires-fan-popup-background" class="popup-background" style="display: none;"></div>

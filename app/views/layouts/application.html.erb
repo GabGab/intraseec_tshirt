@@ -5,6 +5,7 @@
     <script type="text/javascript">
       AppSettings = {
         appId: "<%= Facebook::APP_ID %>",
+        pageId: "<%= Facebook::PAGE_ID %>",
         channelUrl: "<%= URI.join(root_url, 'channel.html').to_s %>"
       };
     </script>
@@ -27,5 +28,6 @@
       </div>
     </div>
     <%= render :partial => "shared/user_denied_popup" %>
+    <%= render :partial => "shared/requires_fan_popup" %>
   </body>
 </html>
