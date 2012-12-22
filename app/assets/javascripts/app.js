@@ -11,6 +11,9 @@ $(document).ready(function() {
         case "userDenied":
           toggleUserDeniedPopup();
           break;
+        case "requiresFan":
+          toggleRequiresFanPopup();
+          break;
     }
   })
 });
@@ -20,7 +23,7 @@ $(document).on('intraseec:fb:loaded', function() {
 });
 
 function handlePermissionsLink() {
-  $('.permissions').click(
+  $('[data-permissions]').click(
     function(event){
       event.preventDefault();
       FB.login(function(response) {
@@ -35,7 +38,7 @@ function handlePermissionsLink() {
 }
 
 function handleRequiresFanActions() {
-  $(".requires_fan").click(
+  $("[data-requires-fan]").click(
     function(event){
       event.preventDefault();
       FB.getLoginStatus(function(response) {
@@ -44,10 +47,10 @@ function handleRequiresFanActions() {
           FB.api("/me/likes?access_token=" + accessToken, function(result) {
             var array = $.map(result.data, function(o) { return o["id"]; });
             if ($.inArray(AppSettings.pageId, array) == -1) {
-              showRequireFanPopup();
+              toggleRequiresFanPopup();
               FB.Event.subscribe('edge.create',
                 function(response) {
-                  closeRequireFanPopup();
+                  toggleRequiresFanPopup();
                   $('form').submit();
                 }
               );
@@ -66,4 +69,9 @@ function handleRequiresFanActions() {
 function toggleUserDeniedPopup(){
   $('#user-denied-popup').toggle();
   $('#user-denied-popup-background').toggle();
+}
+
+function toggleRequiresFanPopup(){
+  $('#requires-fan-popup').toggle();
+  $('#requires-fan-popup-background').toggle();
 }

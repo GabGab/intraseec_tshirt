@@ -5,6 +5,7 @@ module Facebook
   CONFIG = YAML.load_file(Rails.root.join("config/facebook.yml"))[Rails.env]
   APP_ID = CONFIG['app_id']
   SECRET = CONFIG['secret']
+  PAGE_ID = CONFIG['page_id']
   PAGE_URL = CONFIG['page_url']
 end
 
